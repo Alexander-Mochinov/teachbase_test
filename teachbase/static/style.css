@@ -1,0 +1,105 @@
+body {
+    font-family: "Roboto Condensed", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    min-height: 100vh;
+    background-color: #eee;
+    margin: 0;
+}
+
+.accordions {
+    width: 100%;
+    max-width: 670px;
+    padding: 40px 20px;
+}
+
+.accordion {
+    width: 100%;
+    height: auto;
+    margin: 10px 0;
+}
+
+.accordion__slot {
+    width: 100%;
+    display: block;
+}
+
+.accordion__button {
+    border-radius: 5px;
+    color: #292929;
+    cursor: pointer;
+    padding: 15px 20px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: color 500ms ease;
+    user-select: none;
+    background: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+    position: relative;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.accordion__button:hover {
+    color: #042c73;
+}
+
+.accordion__button::after {
+    transition: transform 500ms;
+    width: 15px;
+    height: 15px;
+    display: block;
+    position: absolute;
+    transform: translate(-50%, -50%) rotate(0deg);
+    top: 50%;
+    right: 10px;
+    content: "";
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 320 512'%3E%3Cpath d='M285.476 272.971L91.132 467.314c-9.373 9.373-24.569 9.373-33.941 0l-22.667-22.667c-9.357-9.357-9.375-24.522-.04-33.901L188.505 256 34.484 101.255c-9.335-9.379-9.317-24.544.04-33.901l22.667-22.667c9.373-9.373 24.569-9.373 33.941 0L285.475 239.03c9.373 9.372 9.373 24.568.001 33.941z'/%3E%3C/svg%3E");
+}
+
+.accordion__button-active::after {
+    transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.accordion__button-active {
+    color: #760284;
+}
+
+.accordion__panel {
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    padding: 0 5px;
+    transition: visibility 500ms, max-height 600ms;
+    transition-timing-function: cubic-bezier(0.694, 0.0482, 0.335, 1);
+}
+
+.accordion__panel-active {
+    max-height: var(--height, 0);
+    visibility: visible;
+}
+
+.accordion-panel__content {
+    background: white;
+    color: #191919;
+    padding: 20px;
+    border-radius: 10px;
+    line-height: 1.5;
+    margin: 10px 0;
+    user-select: none;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.26);
+}
